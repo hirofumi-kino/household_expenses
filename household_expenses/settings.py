@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'household_expenses.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db,backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'household_expenses',
         'USER': os.environ.get('DB_USER'),
         'PASSWORD': os.environ.get('DB_PASSWORD'),
@@ -138,30 +138,30 @@ LOGGING = {
     # ロガー設定
     'loggers': {
         'django': {
-            'handlers': ['console'],
+            'handler': ['console'],
             'level': 'INFO',
         },
 
         # expensesのロガー
         'expenses': {
-            'handlers': ['console'],
+            'handler': ['console'],
             'level': 'DEBUG',
         },
     },
 
     # ハンドラの設定
-    'handlers': {
-        'console': {
+    'handlers':{
+        'console':{
             'level': 'DEBUG',
-            'class': 'logging_StreamHandler',
-            'formatter': 'dev'
+            'class':'logging.StreamHandler',
+            'formatter':'dev'
         },
     },
 
     # フォーマッタの設定
     'formatters': {
         'dev': {
-            'format': '\t'.join([
+            'format': '¥t'.join([
                 '%(asctime)s',
                 '[%(levelname)s]',
                 '%(pathname)s(Line:%(lineno)d)',
